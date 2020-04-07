@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="Shift-Jis">
+<title>START Smart</title>
+<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=yes" />
+<link rel="stylesheet" type="text/css" href="style.css">
+
+<!-- jquery CDN -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    
+
+<script type="text/javascript">
+
+(function($) {
+    $(function() {
+        $('#nav-toggle').click(function(){
+            $('body').toggleClass('open');
+        });
+    });
+})(jQuery);
+
+// 一番下に行ったらmenu消す
+$(window).on("scroll", function() {
+  var scrollHeight = $(document).height();
+  var scrollPosition = $(window).height() + $(window).scrollTop();
+  if ((scrollHeight - scrollPosition) / scrollHeight === 0) {
+  	$('#nav-btn, #nav-toggle').fadeOut('fast');
+  } else {
+  	$('#nav-btn, #nav-toggle').fadeIn('fast');
+  }
+});
+
+</script>
+</head>
+
+
+
+<body>
+<div id="header">
+<h1>START smart</h1>
+<nav id="gnav">
+            <ul>
+                <li><a href="mypage.html">My Page</a></li>
+                <li><a href="index.html">Generate</a></li>
+                <li><a href="classdetail.html">Syllabus</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+        <div id="nav-toggle">
+            <div>
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+        <div id="nav-btn"></div>
+</div>
+
+<div id="main">
+情報文化学部><br />
+<img src="sizen.jpg">
+<div class="box">
+<a href="sizen.html">自然情報学科</a>
+</div>
+
+<img src="shakai.jpg">
+<div class="box">
+<a href="shakai.html">社会システム情報学科</a>
+</div>
+</div>
+
+<br />
+<br />
+
+</body>  
+</html>

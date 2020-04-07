@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="Shift-Jis">
+<title>START Smart</title>
+<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=yes" />
+<link rel="stylesheet" type="text/css" href="style.css">
+
+<!-- jquery CDN -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    
+
+<script type="text/javascript">
+
+(function($) {
+    $(function() {
+        $('#nav-toggle').click(function(){
+            $('body').toggleClass('open');
+        });
+    });
+})(jQuery);
+
+// 一番下に行ったらmenu消す
+$(window).on("scroll", function() {
+  var scrollHeight = $(document).height();
+  var scrollPosition = $(window).height() + $(window).scrollTop();
+  if ((scrollHeight - scrollPosition) / scrollHeight === 0) {
+  	$('#nav-btn, #nav-toggle').fadeOut('fast');
+  } else {
+  	$('#nav-btn, #nav-toggle').fadeIn('fast');
+  }
+});
+
+var w=0;
+
+var ary = [
+  [0,0,0,0,0], 
+  [0,0,0,0,0],
+  [0,0,0,0,0],
+  [0,0,0,0,0],
+  [0,0,0,0,0],
+];
+
+function osusume(){
+    var q = document.frec.rec.value;
+
+    for(i=1; i<6; i++){
+        for(j=1; j<6; j++){
+            editTbl.rows[i].cells[j-1].style.backgroundColor = '#ffffff';
+            ary[i-1][j-1]=0;
+        }
+    }
+
+    if(q==1){
+        for(i=1; i<6; i++){
+            for(j=1; j<6; j++){
+                if(j==1&&i==1||j==1&&i==2||j==1&&i==4||j==1&&i==4||j==1&&i==5||j==2&&i==2||j==2&&i==3||j==3&&i==2||j==3&&i==3||j==3&&i==4||j==4&&i==1||j==4&&i==2||j==4&&i==3||j==4&&i==4||j==5&&i==1||j==5&&i==4){
+                    aori(i,j);        
+                }
+            }
+        }
+
+        document.ffourone.fourone.options[2].selected = true;
+        ary[3][0]=2;
+        document.ftwothree.twothree.options[1].selected = true;
+        ary[1][2]=1;
+        document.fthreethree.threethree.options[2].selected = true;
+        ary[2][2]=2;
+        document.fthreefour.threefour.options[1].selected = true;
+        ary[2][3]=1;
+        document.ffourfive.fourfive.options[1].selected = true;
+        ary[3][4]=1;
+
+    }else if(q==2){
+        for(i=1; i<6; i++){
+            for(j=1; j<6; j++){
+                if(j==1&&i==1||j==1&&i==2||j==1&&i==4||j==1&&i==4||j==1&&i==5||j==2&&i==2||j==2&&i==3||j==3&&i==2||j==3&&i==3||j==3&&i==4||j==4&&i==1||j==4&&i==2||j==4&&i==3||j==4&&i==5||j==5&&i==1||j==5&&i==4){
+                    aori(i,j);
+                }
+            }
+        }
+
+        document.ffourone.fourone.options[1].selected = true;
+        ary[3][0]=1;
+        document.ftwothree.twothree.options[2].selected = true;
+        ary[1][2]=2;
+        document.fthreethree.threethree.options[2].selected = true;
+        ary[2][2]=2;
+        document.fthreefour.threefour.options[2].selected = true;
+        ary[2][3]=2;
+        document.ffourfive.fourfive.options[1].selected = true;
+        ary[3][4]=1;
+
+    }else if(q==3){
+        for(i=1; i<6; i++){
+            for(j=1; j<6; j++){
+                if(j==1&&i==1||j==1&&i==2||j==1&&i==4||j==1&&i==4||j==2&&i==1||j==2&&i==2||j==2&&i==3||j==3&&i==2||j==3&&i==3||j==3&&i==4||j==4&&i==1||j==4&&i==2||j==4&&i==3||j==5&&i==1||j==5&&i==4){
+                    aori(i,j);
+                }
+            }
+        }
+
+        document.ffourone.fourone.options[1].selected = true;
+        ary[3][0]=1;
+        document.ftwothree.twothree.options[2].selected = true;
+        ary[1][2]=2;
+        document.fthreethree.threethree.options[2].selected = true;
+        ary[2][2]=2;
+        document.fthreefour.threefour.options[2].selected = true;
+        ary[2][3]=2;
+        document.ffourfive.fourfive.options[1].selected = true;
+        ary[3][4]=1;
+
+    }else if(q==4){
+        for(i=1; i<6; i++){
+            for(j=1; j<6; j++){
+                if(j==1&&i==1||j==1&&i==2||j==1&&i==4||j==1&&i==4||j==1&&i==5||j==2&&i==2||j==2&&i==3||j==3&&i==2||j==3&&i==3||j==3&&i==5||j==4&&i==1||j==4&&i==2||j==4&&i==3||j==5&&i==1||j==5&&i==4){
+                    aori(i,j);
+                }
+            }
+        }
+
+        document.ffourone.fourone.options[1].selected = true;
+        ary[3][0]=1;
+        document.ftwothree.twothree.options[2].selected = true;
+        ary[1][2]=2;
+        document.fthreethree.threethree.options[2].selected = true;
+        ary[2][2]=2;
+        document.fthreefour.threefour.options[2].selected = true;
+        ary[2][3]=2;
+        document.ffourfive.fourfive.options[1].selected = true;
+        ary[3][4]=1;
+
+    }
+}
+
+
+function cho(v){
+    switch(v){
+        case 0:
+            w=0;
+            which.rows[0].cells[0].style.backgroundColor = '#b0c4de';
+            which.rows[0].cells[1].style.backgroundColor = '#ffffff';
+            break;
+        case 1:
+            w=1;
+            which.rows[0].cells[1].style.backgroundColor = '#b0c4de';
+            which.rows[0].cells[0].style.backgroundColor = '#ffffff';
+            break;
+    }
+}
+
+function aori(i,j){
+    switch(w){
+        case 0:
+            if(ary[i-1][j-1]==0){
+                editTbl.rows[i].cells[j-1].style.backgroundColor = '#b0c4de';
+                ary[i-1][j-1]=5;
+            }else{
+                editTbl.rows[i].cells[j-1].style.backgroundColor = '#ffffff';
+                ary[i-1][j-1]=0;
+            }
+            break;
+    
+        case 1:
+            switch(j){
+                case 1:
+                    switch(i){
+                        case 1:
+                            a = "言文II";
+                            b = "";
+                            c = "";
+                            break;
+                        case 2:
+                            a = "全学教養科目";
+                            b = "";
+                            c = "";
+                            break;
+                        case 5:
+                            a = "情報デザイン（選択）";
+                            b = "茂登山 清文(非)";
+                            c = "電子ネットワーク社会では，だれもが簡単に発信者になることができます。その際に，様々な情報を収集・編集し，それに形を与えることが重要で，その行為をデザインと呼びます。このプロセスは，社会で仕事をする際にも，研究を続けるにも不可欠なものです。この授業では，デザインについての講義とグループによるプロジェクト提案とプレゼン，個人によるポスター制作をおこないます。";
+                            break;
+                    }
+                    break;
+                case 2:
+                    switch(i){
+                        case 1:
+                            a = "心理学実験演習2";
+                            b = "心理システム系教員 ";
+                            c = "心理学実験演習1をさらに発展させ，より高度な分析手法（分散分析・因子分析など）やデータ収集手法，データ収集のプログラムの組み方などを学び，卒業研究に備える。";
+                            break;
+                        case 2:
+                            a = "クリエイティブ・ネットワーキング（必修）";
+                            b = "有田 隆也，他 ";
+                            c = "インターネット技術の急速な発展により，多種多様な情報がネットワークを介して繋がってきた。これを活用した創造的なコミュニケーション形態について，その原理を理解し，活用方法・技術を修得するとともに，新たな文化の可能性を探る。";
+                            break;
+                        case 3:
+                            a = "クリエイティブ・ネットワーキング（必修）";
+                            b = "有田 隆也，他";
+                            c = "インターネット技術の急速な発展により，多種多様な情報がネットワークを介して繋がってきた。これを活用した創造的なコミュニケーション形態について，その原理を理解し，活用方法・技術を修得するとともに，新たな文化の可能性を探る。";
+                            break;
+                        case 4:
+                            a ="応用統計分析";
+                            b ="中野 牧子";
+                            c ="応用統計分析では，統計学の知識を踏まえて，最小2乗法をはじめとした回帰分析の手法を学ぶ。パソコンを用いた実習を行うことで，データを用いて実際に推定を行う力を身につける。 ";
+                            break;
+                    }
+                    break;
+                case 3:
+                    switch(i){
+                        case 4:
+                            a = "情報文化英語セミナー2";
+                            b = "小出 俟子 ";
+                            c = "フォークソング，ロックなどの英語の歌から，英語の言葉の発音，強調，ピッチ，リズムを習得する。黙読よりも音読に力を入れて，本来の生きた英語を習得する。また，一つの歌の中に表現される，テーマや人間の自己表現を分析し，歌が物語る時代背景や社会の変化を考察する。 ";
+                            break;
+                        case 5:
+                            a = "情報文化英語セミナー3";
+                            b = "小出 俟子 ";
+                            c = "英語を使うための環境は社会の情報化とともに飛躍的に改善しています。Webサイトなどを用いて英語の作文能力やコミュニケーション能力を向上させることも，夢ではない時代です。そういう世界に踏み出すにあたっての最低限のエチケットを学びながら，実際にそうした能力をさらに高める方法を学びます。 ";
+                            break;
+                    }
+                    break;
+                case 4:
+                    switch(i){
+                        case 1:
+                            a = "言文II";
+                            b = "";
+                            c = "";
+                            break;
+                        case 2:
+                            a = "情報倫理と法（必修）";
+                            b = "戸田山 和久,後藤（非）,植村（非） ";
+                            c = "高度情報化社会に生きるものとして知っておかなくてはならない知的財産権（著作権や特許権），名誉毀損プライバシーなど，情報をめぐる倫理問題・法問題について法学と倫理学の二つの面から論じます。 ";
+                            break;
+                        case 4:
+                            a = "国際法と環境";
+                            b = "高村 ゆかり";
+                            c = "本講義では，我々が直面している国際的環境問題に対処する手段として構築されている国家間の合意＝国際法の発展の歴史，国内法との関係，基本的なルール，その定立や履行確保の特質，紛争解決手続などについて論じる。";
+                            break;
+                        case 5:
+                            a = "地域調査2";
+                            b = "横山 智/高橋 誠 ";
+                            c = "地域調査1を基礎として，フィールド調査を通して，地域事象の観察や分析，地域情報の収集に関わるスキルを習得し，結果をレポートにまとめる能力を身に付ける。 ";
+                            break;
+                    }
+                    break;
+                case 5:
+                    switch(i){
+                        case 1:
+                            a = "理系教養科目";
+                            b = "";
+                            c = "";
+                            break;
+                    }
+                    break;
+            }
+            information.rows[0].cells[0].innerText = a;
+            information.rows[1].cells[0].innerText = b;
+            information.rows[2].cells[0].innerText = c;
+            break;
+    }
+}
+
+function go(){
+    for(m=0; m<5; m++){
+        for(n=0; n<5; n++){
+            if(ary[m][n]==0){
+                compTbl.rows[m+1].cells[n].innerText = "";
+            }else if(ary[m][n]==5){
+                compTbl.rows[m+1].cells[n].innerText = editTbl.rows[m+1].cells[n].innerText;
+            }else{
+                var k = ary[m][n];
+                if(m==3&&n==0){
+                    if(k==1){
+                        a = "プログラミング2";
+                    }else if(k==2){
+                        a = "国際環境と政治・外交";
+                    }
+                }else if(m==1&&n==2){
+                    if(k==1){
+                        a = "経済解析1";
+                    }else if(k==2){
+                        a = "映像メディア論";
+                    }
+                }else if(m==2&&n==2){
+                    if(k==1){
+                        a = "理系教養科目";
+                    }else if(k==2){
+                        a = "文系教養科目";
+                    }
+                }else if(m==2&&n==3){
+                    if(k==1){
+                        a = "環境政治";
+                    }else if(k==2){
+                        a = "社会調査法2";
+                    }
+                }else if(m==3&&n==4){
+                    if(k==1){
+                        a = "シミュレーション科学入門";
+                    }else if(k==2){
+                        a = "統計分析";
+                    }else if(k==3){
+                        a = "サイバー文化論";
+                    }
+                }
+                compTbl.rows[m+1].cells[n].innerText = a;
+            }
+        }
+    }
+}
+
+function change(i,j){
+    switch(j){
+        case 1:
+            switch(i){
+                case 4:
+                    var k = document.ffourone.fourone.value;
+                    if(k==1){
+                        a = "プログラミング2（選択）";
+                        b = "内山 知実 , 鈴木 麗璽 ";
+                        c = "Java言語の基本文法を解説し，アプリケーションおよびアプレットのプログラミングに関する実習を行う。授業では毎回，レポート課題としてプログラム問題を課す。 ";
+                    }else if(k==2){
+                        a = "国際環境と政治・外交";
+                        b = "井口 治夫(非) ";
+                        c = "受講生は，現在に至る米国政治外交の特徴について，同国誕生以降の国際政治史の文脈で理解を深めていく。学ぶ主な時代区分は第2次世界大戦から現在までであるが，この時期を理解するためにはそれ以前の米国についても学ぶ。";
+                    }
+                    break;
+            }
+            break;
+        case 3:
+            switch(i){
+                case 2:
+                    var k = document.ftwothree.twothree.value;
+                    if(k==1){
+                        a = "経済解析1";
+                        b = "黒田 達朗";
+                        c = "本講義は，人間社会の経済的側面を分析するために最も基礎的な理論的フレームワークを与えるミクロ経済学への入門を目的とする。選好や生産技術などの条件の下で，消費者，企業の行動に関する原理とそれから導かれる経済的帰結を検討し，市場経済システムが有する基本的性質の理解を目指す。";
+                    }else if(k==2){
+                        a = "映像メディア論";
+                        b = "遠藤守 ";
+                        c = "モバイル端末におけるデジタルコンテンツ制作について学ぶとともに，作品制作を通してマルチメディアコンテンツの企画，制作，プレゼンテーションに関する知識と技術を習得する。 ";
+                    }
+                    break;
+                case 3:
+                    var k = document.fthreethree.threethree.value;
+                    if(k==1){
+                        a = "理系教養科目";
+                        b = "";
+                        c = "";
+                    }else if(k==2){
+                        a = "文系教養科目";
+                        b = "";
+                        c = "";
+                    }
+                    break;
+            }
+            break;
+        case 4:
+            switch(i){
+                case 3:
+                    var k = document.fthreefour.threefour.value;
+                    if(k==1){
+                        a = "環境政治";
+                        b = "野村 康";
+                        c = "環境問題の政治的側面を考えるための，基礎的素養を身につけることを目的とする。特に，民主政の世界的広がりを踏まえ，民主的手続きと環境保全の関係について，批判的に考える力を養う。";
+                    }else if(k==2){
+                        a = "社会調査法2";
+                        b = "立川 雅司";
+                        c = "社会調査法1に引き続き，社会調査に関する基礎的知識と調査技法を学ぶ。ヒアリング調査と質問紙調査の実習を通して，データの収集・処理，データの解釈・分析の仕方などを習得する。";
+                    }
+                    break;
+            }
+            break;
+        case 5:
+            switch(i){
+                case 4:
+                    var k = document.ffourfive.fourfive.value;
+                    if(k==1){
+                        a = "シミュレーション科学入門（必修）";
+                        b = "時田 恵一郎";
+                        c = "シミュレーションは，科学研究において実験・理論に次ぐ第3の方法と呼ばれ，コンピュータの発展とともに急速にその研究対象を拡大している。物質（ハード）から情報（ソフト）へと現象理解に対する視点が変化する中で，具体的適用例も交えながら，その理念と方法について講義する。目標（1）シミュレーション科学の対象となる複雑な自然・社会現象を知る。（2）シミュレーションの有効性と問題点について理解する。（3）対象に捉われないソフト的な考え方を養う。";
+                    }else if(k==2){
+                        a = "統計分析";
+                        b = "加藤 尚史";
+                        c = "統計学的な分析を行うために必要とされる基礎的な知識を提供する。データの収集と記述，モデルの構築と推定を行う能力を身につける。";
+                    }else if(k==3){
+                        a = "サイバー文化論";
+                        b = "米山 優";
+                        c = "インターネットなどを介して成立するヴァーチャルなコミュニティに注目し，そこで語りうる文化や市民性（civility）といった事柄について考える。";
+                    }
+                    break;
+            }
+            break;
+    }
+    if(k==0){
+        editTbl.rows[i].cells[j-1].style.backgroundColor = '#ffffff';
+        a = "";
+        b = "";
+        c = "";
+        ary[i-1][j-1]=0;
+    }else{
+        editTbl.rows[i].cells[j-1].style.backgroundColor = '#b0c4de';
+        ary[i-1][j-1]=k;
+    }
+    information.rows[0].cells[0].innerText = a;
+    information.rows[1].cells[0].innerText = b;
+    information.rows[2].cells[0].innerText = c;
+}
+
+</script>
+</head>
+
+
+
+<body>
+<div id="header">
+<h1>START smart</h1>
+<nav id="gnav">
+            <ul>
+                <li><a href="mypage.html">My Page</a></li>
+                <li><a href="index.html">Generate</a></li>
+                <li><a href="classdetail.html">Syllabus</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+        <div id="nav-toggle">
+            <div>
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+        <div id="nav-btn"></div>
+</div>
+
+<div id="main">
+情報文化学部>社会システム情報学科>2年<br />
+<div class="box">
+
+<table id="which">
+<tr>
+    <td class="one"><a href="javascript:void(0);" onclick="cho(0)" style="color: #000000">授業を選択</a></td>
+    <td><a href="javascript:void(0);" onclick="cho(1)" style="color: #000000">情報を見る</a></td>
+    <td><form name="frec"><select name="rec" style="width:70px; font-size:1em; border: 1px" onchange="osusume()">
+        <option value="0">おすすめ未選択</option>
+        <option value="1">環境法経へ行きたい人</option>
+        <option value="2">社地環へ行きたい人</option>
+        <option value="3">心理へ行きたい人</option>
+        <option value="4">メディアへ行きたい人</option>
+    </select></form></td>
+</tr>
+<tr></tr>
+</table>
+
+<table id="editTbl">
+<tr>
+    <th>月</th><th>火</th><th>水</th><th>木</th><th>金</th>
+</tr>
+<!--1限-->
+<tr>
+    <td class="one"><a href="javascript:void(0);" onclick="aori(1,1)">言文II</a></td>
+    <td class="three"><a href="javascript:void(0);" onclick="aori(1,2)">心理学実験演習2</a></td>
+    <td></td>
+    <td class="one"><a href="javascript:void(0);" onclick="aori(1,4)">言文II</a></td>
+    <td class="one"><a href="javascript:void(0);" onclick="aori(1,5)">理系教養科目</a></td>
+</tr>
+
+<!--2限-->
+<tr>
+    <td class="one"><a href="javascript:void(0);" onclick="aori(2,1)">全学教養科目</a></td>
+    <td class="two"><a href="javascript:void(0);" onclick="aori(2,2)">クリエイティブ・ネットワーキング</a></td>
+    <td class="one"><form name="ftwothree"><select name="twothree" style="width:50px; font-size:1em; border: 1px" onchange="change(2,3)">
+        <option value="0">未選択</option>
+        <option value="1">経済解析1</option>
+        <option value="2">映像メディア論</option>
+    </select></form></td>
+    <td class="two"><a href="javascript:void(0);" onclick="aori(2,4)">情報倫理と法</a></td>
+    <td></td>
+</tr>    
+
+<!--3限-->
+<tr>
+    <td></td>
+    <td class="two"><a href="javascript:void(0);" onclick="aori(3,2)">クリエイティブ・ネットワーキング</a></td>
+    <td class="one"><form name="fthreethree"><select name="threethree" style="width:50px; font-size:1em; border: 1px" onchange="change(3,3)">
+        <option value="0">未選択</option>
+        <option value="1">理系教養科目</option>
+        <option value="2">文系教養科目</option>
+    </select></form></td>
+    <td class="one"><form name="fthreefour"><select name="threefour" style="width:50px; font-size:1em; border: 1px" onchange="change(3,4)">
+        <option value="0">未選択</option>
+        <option value="1">環境政治</option>
+        <option value="2">社会調査法</option>
+    </select></form></td>
+    <td></td>
+</tr>        
+
+<!--4限-->
+<tr>
+    <td class="one"><form name="ffourone"><select name="fourone" style="width:50px; font-size:1em; border: 1px" onchange="change(4,1)">
+        <option value="0">未選択</option>
+        <option value="1">プログラミング2</option>
+        <option value="2">国際環境と政治・外交</option>
+    </select></form></td>
+    <td class="six"><a href="javascript:void(0);" onclick="aori(4,2)">応用統計分析</a></td>
+    <td class="two"><a href="javascript:void(0);" onclick="aori(4,3)">情報文化英語セミナー2</a></td>
+    <td class="six"><a href="javascript:void(0);" onclick="aori(4,4)">国際法と環境</a></td>
+    <td class="one"><form name="ffourfive"><select name="fourfive" style="width:50px; font-size:1em; border: 1px" onchange="change(4,5)">
+        <option value="0">未選択</option>
+        <option value="1">シミュレーション科学入門</option>
+        <option value="2">統計分析</option>
+        <option value="3">サイバー文化論（隔年）</option>
+    </select></form></td>
+</tr>        
+
+<!--5限-->
+<tr>
+    <td class="two"><a href="javascript:void(0);" onclick="aori(5,1)">情報デザイン</a></td>
+    <td></td>
+    <td class="two"><a href="javascript:void(0);" onclick="aori(5,3)">情報文化英語セミナー3</a></td>
+    <td class="five"><a href="javascript:void(0);" onclick="aori(5,4)">地域調査2</a></td>
+    <td></td>
+</tr>
+<tr></tr>
+</table>
+
+<a href="javascript:void(0);" onclick="go()"><span class="more">確認</span></a>
+</div>
+
+<div class="box">
+<table id="information">
+<tr><td><a href="url"></a></td></tr>
+<tr><td></td></tr>
+<tr><td></td></tr>
+<tr></tr>
+</table>
+
+<a href="classdetail.html"><span class="more">詳細</span></a>
+</div>
+
+<div class="box">
+<table id="compTbl">
+<tr>
+    <th>月</th><th>火</th><th>水</th><th>木</th><th>金</th>
+</tr>
+<tr>
+    <td></td><td></td><td></td><td></td><td></td>
+</tr>
+<tr>
+    <td></td><td></td><td></td><td></td><td></td>
+</tr>
+<tr>
+    <td></td><td></td><td></td><td></td><td></td>
+</tr>
+<tr>
+    <td></td><td></td><td></td><td></td><td></td>
+</tr>
+<tr>
+    <td></td><td></td><td></td><td></td><td></td>
+</tr>
+<tr></tr>
+</table>
+
+<a href="javascript:void(0);"><span class="more">登録</span></a>
+</div>
+
+</div>
+
+<br />
+<br />
+
+</body>  
+</html>

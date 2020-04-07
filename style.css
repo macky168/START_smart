@@ -1,0 +1,359 @@
+@charset "utf-8";
+
+/* BASE */
+body{
+    margin: 0;
+    padding: 0;
+    -webkit-text-size-adjust: 100%;
+    font-family: 'Open Sans Condensed', sans-serif;
+}
+
+img{
+
+    border: 0;
+    vertical-align: bottom;
+    width: 100%;
+}
+
+a:link{
+    color:#245fbb;
+}
+a:visited{
+    color:#245fbb;
+}
+a:hover{
+    color:#245fbb;
+}
+a:active{
+    color:#245fbb;
+}
+
+
+a{
+    text-decoration: none;
+}
+
+/* HEADER*/
+h1{
+    color: #fff;
+    margin: 0;
+    padding: .5em;
+    background: #5FFFD2;
+    font-size: 24px;
+}
+
+h1 a{
+    color: #FFF;
+}
+
+/* MAIN CONTENTS*/
+#main{
+    margin-top: 10px;
+    background: #ffffff;
+    overflow: hidden;
+}
+#main h2{
+    color: #423D3A;
+    font-size: 20px;
+}
+
+.box{
+    z-index: 50;
+    position: relative;
+    border: 0px;
+    padding: 10px;
+    margin-bottom: 1.5em;
+    background: #e6e6e6;
+}
+.box h3{
+    z-index: 50;
+    margin-top: 0;
+    padding-right: 80px;
+    font-size: 18px;
+    border-bottom: 2px dotted #ffffff;
+}
+
+.more{
+    float: right;
+    padding: .2em 1em;
+    background: #99363b;
+    color: #FFF;
+    font-weight: bold;
+    -webkit-border-radius: 15px;
+    border-radius: 15px;
+    -webkit-box-shadow: 1px 1px 2px rgba(0, 0, 0, .5);
+    box-shadow: 1px 1px 2px rgba(0, 0, 0, .5);
+}
+.more::before{
+    content: '>';
+}
+
+#which{
+    width: 100%;
+    table-layout: fixed;
+    word-break: break-word;
+}
+#which td{
+    font-size: 0.8em;
+    border: 2px #808080 solid;
+    background: white;
+}
+#which td.one{
+     background: #b0c4de;
+}
+#editTbl{
+    z-index: 100;
+    width: 100%;
+    table-layout: fixed;
+    word-break: break-word;
+}
+#editTbl th{
+    font-size: 0.6em;
+}
+#editTbl td{
+    font-size: 0.6em;
+    border: 3px white solid;
+    background: white;
+}
+#editTbl td.one{
+    font-size: 0.6em;
+    border: 3px #808080 solid;
+    background: white;
+}
+#editTbl td.two{
+    font-size: 0.6em;
+    border: 3px #d6deb1 solid;
+    background: white;
+}
+#editTbl td.three{
+    font-size: 0.6em;
+    border: 3px #b1dec2 solid;
+    background: white;
+}
+#editTbl td.four{
+    font-size: 0.6em;
+    border: 3px #b1c4de solid;
+    background: white;
+}
+#editTbl td.five{
+    font-size: 0.6em;
+    border: 3px #ddb1de solid;
+    background: white;
+}
+#editTbl td.six{
+    font-size: 0.6em;
+    border: 3px #deb1b2 solid;
+    background: white;
+}
+
+#compTbl{
+    z-index: 100;
+    width: 100%;
+    table-layout: fixed;
+    word-break: break-word;
+}
+#compTbl th{
+    font-size: 0.6em;
+}
+#compTbl td{
+    font-size: 0.6em;
+    border: 2px white solid;
+    background: white;
+}
+
+#information{
+    z-index: 100;
+    width: 100%;
+    table-layout: fixed;
+    word-break: break-word;
+}
+#information td{
+    font-size: 0.6em;
+    border: 2px white solid;
+    background: white;
+}
+
+/*-----------------------------------*/
+/*----------グローバルナビ-------------*/
+/*-----------------------------------*/
+.open #gnav {
+  background: #2CB2BA;
+  z-index: 1000; /*階層*/
+  visibility: visible; /*表示する*/
+  transition: .3s;
+}
+
+#gnav {
+  visibility: hidden; /*非表示にする*/
+  position: fixed;
+  display: table;
+  vertical-align: middle;
+  color: #fff;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  text-align: center;
+  font-size: 16px;
+  transition: .3s;
+}
+
+#gnav ul {
+  padding: 0;
+  display: table-cell;
+  vertical-align: middle;
+  list-style: none;
+}
+
+#gnav a {
+    border-radius: 25px;
+    margin: 5px auto;
+    color: #fff;
+    text-decoration: none;
+    display: block;
+    padding: 15px 0;
+    width: 30%;
+}
+#gnav a:hover {
+    background-color: #fff;
+    color: #696969;
+    transition: .5s;
+}
+
+/*-----------------------------------*/
+/*----------メニューのリスト-----------*/
+/*-----------------------------------*/
+#gnav ul li {
+  opacity: 0;
+  transform: scaleX(0) translateX(-260px);
+  transition: none;
+}
+.open #gnav ul li {
+  opacity: 1;
+  transform: scaleX(1) translateX(0);
+
+  transition: all .3s ease-out;
+
+  transition-delay: .1s;
+}
+.open #gnav ul li:nth-child(2) {
+  transition-delay: .2s;
+}
+.open #gnav ul li:nth-child(3) {
+  transition-delay: .3s;
+}
+.open #gnav ul li:nth-child(4) {
+  transition-delay: .4s;
+}
+.open #gnav ul li:nth-child(5) {
+  transition-delay: .5s;
+}
+
+/*-----------------------------------*/
+/*----------メニューボタン-------------*/
+/*-----------------------------------*/
+#nav-btn {
+    z-index: 1000;
+    content: "";
+    margin: 0 auto;
+    width: 80px;
+    height: 80px;
+    bottom: 10px;
+    text-align: center;
+    left: 12px;
+    bottom: 10px;
+    position: fixed;
+    background: #2CB2BA;
+    border-radius: 50%;
+    transition: all .3s ease-out;
+    backface-visibility: hidden;
+}
+.open #nav-btn {
+  z-index: 1001;
+  background: #fff;
+  transition: all .6s ease-out;
+}
+
+/*-----------------------------------*/
+/*-----------ハンバーガー--------------*/
+/*-----------------------------------*/
+#nav-toggle {
+    margin: 0 auto;
+    display: block;
+    position: fixed;
+    bottom: 10px;
+    left: 13px;
+    width: 40px;
+    height: 30px;
+    cursor: pointer;
+    padding: 20px;
+    z-index: 1001;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+
+#nav-toggle div {
+  position: relative;
+}
+#nav-toggle span {
+  display: block;
+  position: absolute;
+  height: 4px;
+  width: 100%;
+  background: #fff;
+  left: 0;
+  zoom: 1;
+  transition: .35s ease-in-out;
+}
+
+#nav-toggle span:nth-child(1) {
+  top: -5px;
+}
+#nav-toggle span:nth-child(2) {
+  top: 8px;
+}
+#nav-toggle span:nth-child(3) {
+  top: 21px;
+}
+
+/*-----------------------------------*/
+/*----------クリック後のCSS------------*/
+/*-----------------------------------*/
+.open #nav-toggle {
+  z-index: 1002;
+  background: transparent;
+}
+.open #nav-toggle span {
+  background: #696969;
+}
+
+.open #nav-toggle span:nth-child(1) {
+  top: 9px;
+  transform: rotate(-135deg);
+  zoom: 1;
+}
+.open #nav-toggle span:nth-child(2) {
+  width: 0;
+  left: 50%;
+}
+.open #nav-toggle span:nth-child(3) {
+  top: 9px;
+  transform: rotate(135deg);
+  zoom: 1;
+}
+
+#tannni{
+    border-collapse: collapse;
+}
+#tanni th{
+    font-size: 0.6em;
+}
+#tanni td{
+    font-size: 0.6em;
+    text-align: right;
+}
+
+.w1{
+    border-bottom:dotted 1px #000000;
+}
+.w2{
+    border-bottom:dotted 1px #000000;
+}

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="Shift-Jis">
+<title>START Smart</title>
+<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=yes" />
+<link rel="stylesheet" type="text/css" href="style.css">
+
+<!-- jquery CDN -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    
+
+<script type="text/javascript">
+
+(function($) {
+    $(function() {
+        $('#nav-toggle').click(function(){
+            $('body').toggleClass('open');
+        });
+    });
+})(jQuery);
+
+// 一番下に行ったらmenu消す
+$(window).on("scroll", function() {
+  var scrollHeight = $(document).height();
+  var scrollPosition = $(window).height() + $(window).scrollTop();
+  if ((scrollHeight - scrollPosition) / scrollHeight === 0) {
+  	$('#nav-btn, #nav-toggle').fadeOut('fast');
+  } else {
+  	$('#nav-btn, #nav-toggle').fadeIn('fast');
+  }
+});
+
+</script>
+</head>
+
+<body>
+<div id="header">
+<h1>My Page</h1>
+<nav id="gnav">
+            <ul>
+                <li><a href="mypage.html">My Page</a></li>
+                <li><a href="index.html">Generate</a></li>
+                <li><a href="classdetail.html">Syllabus</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+        <div id="nav-toggle">
+            <div>
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+        <div id="nav-btn"></div>
+</div>
+
+<div id="main">
+<div class="box">
+<h3>ゲストさん</h3>
+名古屋大学情報文化学部○○学科
+</div>
+
+<div class="box">
+<h3>時間割</h3>
+</div>
+
+<div class="box">
+<h3>単位</h3>
+<table id="tanni">
+<tr class="w1">
+    <th></th><th class="w1"></th><th class="w1"></th><th class="w1"></th><th class="w1">取得済</th><th class="w1">今期予定</th><th class="w1">小計</th><th class="w1">卒業要件</th><th class="w1">過不足</th>
+</tr>
+<tr>
+    <th rowspan=10 width=10>全学教育科目</th><th></th><th></th><th></th><td></td><td></td><td></td><td></td><td></td><td></td>
+</tr>
+<tr>
+    <th></th><th></th><th>文基</th><td>10</td><td>0</td><td>10</td><td>4</td><td>+6</td><td></td>
+</tr>
+<tr>
+    <th></th><th></th><th>文教</th><td>4</td><td>0</td><td>4</td><td>4</td><td>0</td><td></td>
+</tr>
+<tr>
+    <th></th><th></th><th>理教</th><td>4</td><td>0</td><td>4</td><td>4</td><td>0</td><td></td>
+</tr>
+<tr>
+    <th></th><th></th><th>全教</th><td>2</td><td>0</td><td>2</td><td>2</td><td>0</td><td></td>
+</tr>
+<tr>
+    <th></th><th></th><th>開放</th><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td></td>
+</tr>
+<tr>
+    <th></th><th>小計</th><th></th><td>20</td><td>0</td><td>20</td><td>16</td><td>+4</td><td></td>
+</tr>
+<tr>
+    <th></th><th>全基</th><th></th><td>19</td><td>2</td><td>21</td><td>18</td><td>+3</td><td></td>
+</tr>
+<tr>
+    <th></th><th>理基</th><th></th><td>12</td><td>9</td><td>21</td><td>20</td><td>+1</td><td></td>
+</tr>
+<tr>
+    <th class="w2">計</th><th class="w2"></th><th class="w2"></th><td class="w2">51</td><td class="w2">11</td><td class="w2">62</td><td class="w2">54</td><td class="w2">+8</td><td class="w2"></td>
+</tr>
+
+<tr>
+    <th rowspan=5 width=10>専門系科目</th><th></th><th></th><th></th><td></td><td></td><td></td><td></td><td></td><td></td>
+</tr>
+<tr>
+    <th></th><th>専門基礎</th><th></th><td>12</td><td>12</td><td>24</td><td>36</td><td>-12</td><td></td>
+</tr>
+<tr>
+    <th></th><th>専門</th><th></th><td>0</td><td>4</td><td>4</td><td>42~52</td><td>-38</td><td></td>
+</tr>
+<tr>
+    <th></th><th>関連専門</th><th></th><td>0</td><td>2</td><td>2</td><td>12~2</td><td>0</td><td></td>
+</tr>
+<tr>
+    <th class="w2">計</th><th class="w2"></th><th class="w2"></th><td class="w2">12</td><td class="w2">18</td><td class="w2">30</td><td class="w2">90</td><td class="w2">-60</td><td class="w2"></td>
+</tr>
+</table>
+</div>
+
+<div class="box">
+<h3>成績</h3>
+
+</div>
+</div>
+
+</body>  
+</html>
